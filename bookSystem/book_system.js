@@ -1,5 +1,7 @@
+// Store all books
 let books = [];
 
+// Add a new book
 function addBook() {
   const bookName = document.getElementById('bookName').value;
   const authorName = document.getElementById('authorName').value;
@@ -21,6 +23,8 @@ function addBook() {
     alert('Please fill in all fields correctly.');
   }
 }
+
+// Display all books
 function showbooks() {
   const booksDiv = books.map((book, index) => `
     <h1>book Number: ${index + 1}</h1>
@@ -29,10 +33,13 @@ function showbooks() {
     <p><strong>Book Description:</strong> ${book.bookDescription}</p>
     <p><strong>No. of Pages:</strong> ${book.pagesNumber} page(s)</p>
     <button onclick="editbook(${index})">Edit</button>
+    <button onclick="deletebook(${index})">Delete</button>
   `);
 
   document.getElementById('books').innerHTML = booksDiv.join('');
 }
+
+// Edit an existing book
 function editbook(index) {
   const book = books[index];
 
@@ -42,8 +49,16 @@ function editbook(index) {
   document.getElementById('pagesNumber').value = book.pagesNumber;
 
   books.splice(index, 1); // Remove old entry
-  showbooks(); // Refresh list
+  showbooks();
 }
+
+// Delete a book (practice task)
+function deletebook(index) {
+  books.splice(index, 1);
+  showbooks();
+}
+
+// Clear input fields
 function clearInputs() {
   document.getElementById('bookName').value = '';
   document.getElementById('authorName').value = '';
