@@ -1,30 +1,29 @@
 function performOperation() {
-  // Get user input from input fields
-  let num1 = parseInt(document.getElementById('input1').value);
-  let num2 = parseInt(document.getElementById('input2').value);
+  let num1 = document.getElementById('input1').value;
+  let num2 = document.getElementById('input2').value;
 
-  // Check if inputs are valid numbers
-  if (!isNaN(num1) && !isNaN(num2)) {
-    // Perform the operation
-    let result = multiply(num1, num2);
+  // Convert first value to number, second intentionally left as-is for debugging
+  let a = parseInt(num1);
+  let b = num2; // may remain string on purpose
 
-    // Display the result
-    displayResult(result);
+  debugger; // Observe values before operations
+
+  if (!isNaN(a) && !isNaN(parseInt(b))) {
+    let addition = a + parseInt(b);
+    let multiplication = a * parseInt(b);
+    let division = a / parseInt(b);
+
+    debugger; // Observe results and flow
+
+    displayResult(
+      `Addition: ${addition}, Multiplication: ${multiplication}, Division: ${division}`
+    );
   } else {
-    displayResult('Please enter valid numbers');
+    displayResult("Invalid input detected. Check debugger values.");
   }
 }
 
-function multiply(a, b) {
-  // Introduce a debugger statement to pause execution
-  debugger;
-
-  // Multiply the numbers
-  return a * b;
-}
-
 function displayResult(result) {
-  // Display the result in the paragraph element
   const resultElement = document.getElementById('result');
-  resultElement.textContent = `The result is: ${result}`;
+  resultElement.textContent = result;
 }
