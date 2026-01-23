@@ -1,13 +1,11 @@
-// Access HTML elements
 const taskInput = document.getElementById("taskInput");
 const addTaskBtn = document.getElementById("addTaskBtn");
 const taskList = document.getElementById("taskList");
 const clearCompletedBtn = document.getElementById("clearCompletedBtn");
+const clearAllBtn = document.getElementById("clearAllBtn");
 
-// Store tasks
 let tasks = [];
 
-// Add a new task
 function addTask() {
   const taskText = taskInput.value.trim();
   if (taskText !== "") {
@@ -17,7 +15,6 @@ function addTask() {
   }
 }
 
-// Display all tasks
 function displayTasks() {
   taskList.innerHTML = "";
   tasks.forEach((task, index) => {
@@ -31,21 +28,23 @@ function displayTasks() {
   });
 }
 
-// Toggle task completion
 function toggleTask(index) {
   tasks[index].completed = !tasks[index].completed;
   displayTasks();
 }
 
-// Clear completed tasks
 function clearCompletedTasks() {
   tasks = tasks.filter(task => !task.completed);
   displayTasks();
 }
 
-// Event listeners
+// ✅ PRACTICE TASK FUNCTION
+function clearAllTasks() {
+  tasks = [];
+  displayTasks();
+}
+
 addTaskBtn.addEventListener("click", addTask);
 clearCompletedBtn.addEventListener("click", clearCompletedTasks);
-
-// Initial display
+clearAllBtn.addEventListener("click", clearAllTasks);
 displayTasks();
