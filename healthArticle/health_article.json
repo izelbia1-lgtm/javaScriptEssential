@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Healthy Eating",
+    "description": "Healthy eating improves overall well-being.",
+    "ways_to_achieve": [
+      "Eat fruits and vegetables",
+      "Avoid processed foods",
+      "Drink plenty of water"
+    ]
+  },
+  {
+    "title": "Regular Exercise",
+    "description": "Exercise keeps your body fit and mind sharp.",
+    "ways_to_achieve": [
+      "Walk daily",
+      "Do strength training",
+      "Stretch regularly"
+    ]
+  }
+]
